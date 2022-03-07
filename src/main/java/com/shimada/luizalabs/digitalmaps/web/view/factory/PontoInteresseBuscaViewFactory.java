@@ -28,9 +28,11 @@ public class PontoInteresseBuscaViewFactory {
 
     private String isAbertoNoHorarioInformado() {
         final LocalTime horarioInformado = LocalTimeConverter.converter(horario);
-        final boolean isNoPeriodo = pontoInteresseTO.getHorarioAbertura().isBefore(horarioInformado) &&
+        final boolean isPeriodoValidavel = pontoInteresseTO.getHorarioAbertura() != null && pontoInteresseTO.getHorarioFechamento() != null;
+
+        final boolean isNoPeriodo = isPeriodoValidavel && pontoInteresseTO.getHorarioAbertura().isBefore(horarioInformado) &&
                                     pontoInteresseTO.getHorarioFechamento().isAfter(horarioInformado);
 
-        return isNoPeriodo ? StatusPontoInteresseEnum.ABERTO.getDescricao() : StatusPontoInteresseEnum.FECHADO.getDescricao();
+        return isNoPeriodo || !isPeriodoValidavel ? StatusPontoInteresseEnum.ABERTO.getDescricao() : StatusPontoInteresseEnum.FECHADO.getDescricao();
     }
 }

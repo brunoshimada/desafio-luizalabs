@@ -1,5 +1,6 @@
 package com.shimada.luizalabs.digitalmaps.web.view;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.shimada.luizalabs.digitalmaps.domain.pontointeresse.models.PontoInteresse;
 import com.shimada.luizalabs.digitalmaps.utils.LocalTimeConverter;
 
@@ -7,7 +8,9 @@ public class PontoInteresseView {
 
     private Integer x;
     private Integer y;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String opened;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String closed;
     private String descricao;
 

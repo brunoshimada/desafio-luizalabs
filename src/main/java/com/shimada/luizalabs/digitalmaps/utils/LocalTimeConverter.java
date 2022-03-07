@@ -20,7 +20,7 @@ public final class LocalTimeConverter {
     }
 
     public static String converter(final LocalTime localTime) {
-        return localTime.format(DATE_TIME_FORMATTER);
+        return localTime != null ? localTime.format(DATE_TIME_FORMATTER) : null;
     }
 
 }
