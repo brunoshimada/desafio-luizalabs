@@ -4,8 +4,11 @@ import com.shimada.luizalabs.digitalmaps.domain.pontointeresse.models.PontoInter
 
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 @Repository
 public class PontoInteresseDao {
@@ -17,4 +20,11 @@ public class PontoInteresseDao {
         entityManager.persist(pontoInteresse);
     }
 
+    public List<PontoInteresse> listar() {
+        final String hql = "from PontoInteresse p";
+
+        final Query query = entityManager.createQuery(hql);
+
+        return query.getResultList();
+    }
 }
