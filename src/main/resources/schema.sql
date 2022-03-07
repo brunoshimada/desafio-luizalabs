@@ -7,5 +7,3 @@ create table ponto_interesse (
                                  horario_fechamento TIME,
                                  primary key (id)
 );
-
-alter table ponto_interesse add constraint UNQ_PI_X_Y UNIQUE (coordenadax, coordenaday);

@@ -7,11 +7,15 @@ import com.shimada.luizalabs.digitalmaps.web.view.ListViewWrapper;
 import com.shimada.luizalabs.digitalmaps.web.view.PontoInteresseView;
 import com.shimada.luizalabs.digitalmaps.web.view.factory.PontoInteresseBuscaViewFactory;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Collections;
 
 import javax.validation.Valid;
 
@@ -26,8 +30,9 @@ public class DigitalMapsApiController {
     }
 
     @PostMapping
-    public void novoPontoDeInteresse(@Valid @RequestBody final PontoInteresseForm pontoInteresseForm) {
+    public ResponseEntity<?> novoPontoDeInteresse(@Valid @RequestBody final PontoInteresseForm pontoInteresseForm) {
         pontoInteresseServiceAPI.novoPontoInteresse(pontoInteresseForm);
+        return new ResponseEntity<>(Collections.singletonMap("message","Novo ponto de interesse salvo com sucesso!"), HttpStatus.CREATED);
     }
 
     @GetMapping
