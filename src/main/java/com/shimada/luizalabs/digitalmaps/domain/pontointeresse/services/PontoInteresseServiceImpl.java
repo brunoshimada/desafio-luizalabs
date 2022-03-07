@@ -3,9 +3,11 @@ package com.shimada.luizalabs.digitalmaps.domain.pontointeresse.services;
 import com.shimada.luizalabs.digitalmaps.api.PontoInteresseServiceAPI;
 import com.shimada.luizalabs.digitalmaps.config.exceptions.BusinessException;
 import com.shimada.luizalabs.digitalmaps.domain.pontointeresse.dao.PontoInteresseDao;
+import com.shimada.luizalabs.digitalmaps.domain.pontointeresse.dao.to.PontoInteresseTO;
 import com.shimada.luizalabs.digitalmaps.domain.pontointeresse.models.PontoInteresse;
 import com.shimada.luizalabs.digitalmaps.domain.pontointeresse.services.factory.PontoInteresseFactory;
 import com.shimada.luizalabs.digitalmaps.domain.pontointeresse.validator.PontoInteresseValidator;
+import com.shimada.luizalabs.digitalmaps.web.form.BuscaPontoInteresseForm;
 import com.shimada.luizalabs.digitalmaps.web.form.PontoInteresseForm;
 
 import org.springframework.dao.DataIntegrityViolationException;
@@ -41,6 +43,11 @@ public class PontoInteresseServiceImpl implements PontoInteresseServiceAPI {
     @Override
     public List<PontoInteresse> listar() {
         return pontoInteresseDao.listar();
+    }
+
+    @Override
+    public List<PontoInteresseTO> buscarPontosDeInteresse(BuscaPontoInteresseForm buscaPontoInteresseForm) {
+        return pontoInteresseDao.buscarPontosDeInteresse(buscaPontoInteresseForm.coordenadaX(), buscaPontoInteresseForm.coordenadaY(), buscaPontoInteresseForm.raio());
     }
 
 }

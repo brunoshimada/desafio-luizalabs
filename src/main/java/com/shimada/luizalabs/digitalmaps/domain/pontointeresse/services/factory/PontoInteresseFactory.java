@@ -1,7 +1,7 @@
 package com.shimada.luizalabs.digitalmaps.domain.pontointeresse.services.factory;
 
 import com.shimada.luizalabs.digitalmaps.domain.pontointeresse.models.PontoInteresse;
-import com.shimada.luizalabs.digitalmaps.domain.pontointeresse.utils.LocalTimeConverter;
+import com.shimada.luizalabs.digitalmaps.utils.LocalTimeConverter;
 import com.shimada.luizalabs.digitalmaps.web.form.PontoInteresseForm;
 
 public class PontoInteresseFactory {

@@ -1,7 +1,7 @@
 package com.shimada.luizalabs.digitalmaps.domain.pontointeresse.validator;
 
 import com.shimada.luizalabs.digitalmaps.config.exceptions.BusinessException;
-import com.shimada.luizalabs.digitalmaps.domain.pontointeresse.utils.LocalTimeConverter;
+import com.shimada.luizalabs.digitalmaps.utils.LocalTimeConverter;
 import com.shimada.luizalabs.digitalmaps.web.form.PontoInteresseForm;
 
 import java.time.LocalTime;

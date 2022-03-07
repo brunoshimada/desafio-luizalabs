@@ -1,4 +1,4 @@
-package com.shimada.luizalabs.digitalmaps.domain.pontointeresse.utils;
+package com.shimada.luizalabs.digitalmaps.utils;
 
 import com.shimada.luizalabs.digitalmaps.config.exceptions.BusinessException;
 

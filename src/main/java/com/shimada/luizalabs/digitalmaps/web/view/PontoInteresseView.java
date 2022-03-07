@@ -1,7 +1,7 @@
 package com.shimada.luizalabs.digitalmaps.web.view;
 
 import com.shimada.luizalabs.digitalmaps.domain.pontointeresse.models.PontoInteresse;
-import com.shimada.luizalabs.digitalmaps.domain.pontointeresse.utils.LocalTimeConverter;
+import com.shimada.luizalabs.digitalmaps.utils.LocalTimeConverter;
 
 public class PontoInteresseView {
 
