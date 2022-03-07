@@ -11,8 +11,11 @@ public class PontoInteresseFactory {
         novoPontoInteresse.setCoordenadaX(pontoInteresseForm.coordenadaX());
         novoPontoInteresse.setCoordenadaY(pontoInteresseForm.coordenadaY());
         novoPontoInteresse.setDescricao(pontoInteresseForm.descricao());
-        novoPontoInteresse.setHorarioAbertura(LocalTimeConverter.converter(pontoInteresseForm.horarioAbertura()));
-        novoPontoInteresse.setHorarioFechamento(LocalTimeConverter.converter(pontoInteresseForm.horarioFechamento()));
+
+        if (pontoInteresseForm.horarioAbertura() != null && pontoInteresseForm.horarioFechamento() != null) {
+            novoPontoInteresse.setHorarioAbertura(LocalTimeConverter.converter(pontoInteresseForm.horarioAbertura()));
+            novoPontoInteresse.setHorarioFechamento(LocalTimeConverter.converter(pontoInteresseForm.horarioFechamento()));
+        }
 
         return novoPontoInteresse;
     }
