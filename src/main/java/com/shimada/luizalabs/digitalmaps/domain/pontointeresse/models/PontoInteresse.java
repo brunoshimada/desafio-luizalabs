@@ -85,11 +85,11 @@ public class PontoInteresse {
             return false;
         }
         PontoInteresse that = (PontoInteresse) o;
-        return coordenadaX.equals(that.coordenadaX) && coordenadaY.equals(that.coordenadaY);
+        return descricao.equals(that.descricao) && coordenadaX.equals(that.coordenadaX) && coordenadaY.equals(that.coordenadaY);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(coordenadaX, coordenadaY);
+        return Objects.hash(descricao, coordenadaX, coordenadaY);
     }
 }
