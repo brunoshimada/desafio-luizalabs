@@ -1,0 +1,190 @@
+{
+	"info": {
+		"_postman_id": "0d5c1932-c9d8-47a5-aa5a-14daf6bb59b1",
+		"name": "Desafio LuizaLabs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Incluir novo ponto de interesse",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "777",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "bruno",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"x\": 13,\n    \"y\": 31,\n    \"descricao\": \"Teste 3\",\n    \"opened\": \"09:30\",\n    \"closed\": \"19:30\"\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:8080/digitalmaps/pontointeresse/api",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"digitalmaps",
+						"pontointeresse",
+						"api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar todos os pontos de interesse",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "777",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "bruno",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/digitalmaps/pontointeresse/api",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"digitalmaps",
+						"pontointeresse",
+						"api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar por distância e horário",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "128",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "bruno",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/digitalmaps/pontointeresse/api/buscar?coordenadaX=20&coordenadaY=15&raio=100&horario=13:30",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"digitalmaps",
+						"pontointeresse",
+						"api",
+						"buscar"
+					],
+					"query": [
+						{
+							"key": "coordenadaX",
+							"value": "20"
+						},
+						{
+							"key": "coordenadaY",
+							"value": "15"
+						},
+						{
+							"key": "raio",
+							"value": "100"
+						},
+						{
+							"key": "horario",
+							"value": "13:30"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "128",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "bruno",
+				"type": "string"
+			}
+		]
+	}
+}
