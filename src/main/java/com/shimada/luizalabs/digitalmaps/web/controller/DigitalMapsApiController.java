@@ -28,6 +28,7 @@ import io.swagger.v3.oas.annotations.media.ExampleObject;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
@@ -41,7 +42,7 @@ public class DigitalMapsApiController {
         this.pontoInteresseServiceAPI = pontoInteresseServiceAPI;
     }
 
-    @Operation(summary = "Cria um novo ponto de interesse")
+    @Operation(summary = "Cria um novo ponto de interesse", security = @SecurityRequirement(name = "basicAuth"))
     @ApiResponses(value = {
         @ApiResponse(responseCode = "201", description = "Novo ponto de interesse salvo com sucesso", content = @Content(examples = @ExampleObject(value = "{\"message\": \"Novo ponto de interesse salvo com sucesso!\"}"))),
         @ApiResponse(responseCode = "400",
@@ -55,11 +56,12 @@ public class DigitalMapsApiController {
     @PostMapping(consumes = {"application/json"}, produces = {"application/json"})
     public ResponseEntity<?> novoPontoDeInteresse(@Valid @RequestBody final PontoInteresseForm pontoInteresseForm) {
         pontoInteresseServiceAPI.novoPontoInteresse(pontoInteresseForm);
-        return new ResponseEntity<>(Collections.singletonMap("message","Novo ponto de interesse salvo com sucesso!"), HttpStatus.CREATED);
+        return new ResponseEntity<>(Collections.singletonMap("message", "Novo ponto de interesse salvo com sucesso!"), HttpStatus.CREATED);
     }
 
     @Operation(summary = "Lista todos os pontos de interesse",
-        description = "Lista todos os pontos de intersse sem filtro\n\nA api devolve a lista em um atributo \"resultado\"\n\nCaso o ponto de interesse não tenha um horário não será enviado os atributos \"opened\" e \"closed\""
+        description = "Lista todos os pontos de intersse sem filtro\n\nA api devolve a lista em um atributo \"resultado\"\n\nCaso o ponto de interesse não tenha um horário não será enviado os atributos \"opened\" e \"closed\"",
+        security = @SecurityRequirement(name = "basicAuth")
     )
     @ApiResponse(responseCode = "200", description = "Busca com sucesso", content = @Content(array = @ArraySchema(schema = @Schema(implementation = PontoInteresseView.class))))
     @GetMapping(produces = {"application/json"})
@@ -68,7 +70,8 @@ public class DigitalMapsApiController {
     }
 
     @Operation(summary = "Busca pontos de interesse",
-                description = "Busca os pontos de interesse filtrando com os parâmetros enviados \n\nA api devolve a lista em um atributo \"resultado\""
+        description = "Busca os pontos de interesse filtrando com os parâmetros enviados \n\nA api devolve a lista em um atributo \"resultado\"",
+        security = @SecurityRequirement(name = "basicAuth")
     )
     @ApiResponse(responseCode = "200", description = "Busca com sucesso", content = @Content(array = @ArraySchema(schema = @Schema(implementation = PontoInteresseBuscaView.class))))
     @GetMapping(value = "/buscar", produces = {"application/json"})
