@@ -23,7 +23,13 @@ public class WebSecurityConfigureAdapterImpl extends WebSecurityConfigurerAdapte
     protected void configure(HttpSecurity http) throws Exception {
         http
             .csrf().disable()
+            .authorizeRequests().antMatchers("/").permitAll()
+            .and()
+            .authorizeRequests().antMatchers("/h2-console/**").permitAll()
+            .and()
             .authorizeRequests().anyRequest().authenticated()
+            .and()
+            .headers().frameOptions().disable()
             .and()
             .httpBasic();
     }
